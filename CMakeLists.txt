@@ -8,4 +8,4 @@ add_executable(cs162_lab9_stl_containers
     InputValidation.hpp
     main.cpp
     Menu.cpp
-    Menu.hpp Buffer.cpp Buffer.hpp)
+    Menu.hpp Buffer.cpp Buffer.hpp Palindrome.cpp Palindrome.hpp)

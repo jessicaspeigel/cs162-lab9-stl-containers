@@ -14,6 +14,4 @@ void startSimulation();
 
 void printBuffer(std::queue<int> *q);
 
-double getAverageBufferLength(std::queue<int> *q);
-
 #endif //CS162_LAB9_STL_CONTAINERS_BUFFER_HPP

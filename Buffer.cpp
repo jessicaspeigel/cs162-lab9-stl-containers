@@ -20,6 +20,9 @@ void startSimulation() {
     // Seed rand
     srand(time(NULL));
 
+    // Create a variable for the average
+    double avg = 0;
+
     // Get setup information from the user
     int rounds = getIntegerWithMin("How many rounds would you like to run the simulation for?", 1);
     int addItemChance = getIntegerWithMinMax("What percentage chance do you want to add a randomly generated number to the end of the buffer?", 1, 100);
@@ -31,6 +34,9 @@ void startSimulation() {
     // Start the simulation
     int currentRound = 0;
     do {
+        // Print the buffer
+        cout << endl;
+        cout << "---------------ROUND " << currentRound << "---------------" << endl << endl;
         // Generate a random number between 1 and 1000
         int n = rand() % 1000 + 1;
         // Do we need to append a number?
@@ -50,12 +56,21 @@ void startSimulation() {
                 buffer->pop();
             }
         }
+
         // Output the buffer
         printBuffer(buffer);
 
         // Print the length and average length of the buffer
         cout << "Current buffer length: " << buffer->size() << endl;
-        cout << "Average buffer length: " << getAverageBufferLength(buffer) << endl;
+
+        // Calculate average buffer length
+        if (currentRound > 0) {
+            avg = (avg * (currentRound - 1) + buffer->size()) / currentRound;
+        }
+        cout << "Average buffer length: " << avg << endl;
+
+        // Update the round
+        currentRound++;
 
     } while (currentRound < rounds);
 
@@ -74,15 +89,4 @@ void printBuffer(std::queue<int> *q) {
         q->push(q->front());
         q->pop();
     }
-}
-
-/****************************************************
-** Description: Calculates the average length of
-** the buffer.
-****************************************************/
-
-double getAverageBufferLength(std::queue<int> *q) {
-    double averageLength = 0;
-
-    return averageLength;
 }

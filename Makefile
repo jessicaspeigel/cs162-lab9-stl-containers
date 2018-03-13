@@ -1,5 +1,5 @@
-output: main.o Menu.o InputValidation.o DriverFunctions.o Queue.o
-	g++ -std=c++0x -g -Wall -pedantic-errors main.o Menu.o InputValidation.o DriverFunctions.o Queue.o -o lab7
+output: main.o Menu.o InputValidation.o Buffer.o Palindrome.o
+	g++ -std=c++0x -g -Wall -pedantic-errors main.o Menu.o InputValidation.o Buffer.o Palindrome.o -o lab9
 
 main.o: main.cpp
 	g++ -std=c++0x -g -Wall -pedantic-errors -c main.cpp
@@ -10,11 +10,11 @@ Menu.o: Menu.cpp
 InputValidation.o: InputValidation.cpp
 	g++ -std=c++0x -g -Wall -pedantic-errors -c InputValidation.cpp
 
-DriverFunctions.o: DriverFunctions.cpp
-	g++ -std=c++0x -g -Wall -pedantic-errors -c DriverFunctions.cpp
+Buffer.o: Buffer.cpp
+	g++ -std=c++0x -g -Wall -pedantic-errors -c Buffer.cpp
 
-Queue.o: Queue.cpp
-	g++ -std=c++0x -g -Wall -pedantic-errors -c Queue.cpp
+Palindrome.o: Palindrome.cpp
+	g++ -std=c++0x -g -Wall -pedantic-errors -c Palindrome.cpp
 
 clean:
-	rm *.o lab7
+	rm *.o lab9
